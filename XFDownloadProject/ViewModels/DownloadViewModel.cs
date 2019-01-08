@@ -63,7 +63,7 @@ namespace XFDownloadProject.ViewModels
             {
                 IsDownloading = true;
 
-                var url = "https://github.com/damienaicheh/XamarinAndroidParcelable/archive/master.zip";
+                var url = "https://sample-videos.com/img/Sample-jpg-image-5mb.jpg";
 
                 await _downloadService.DownloadFileAsync(url, progressIndicator, cts.Token);
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,6 +55,9 @@ namespace XFDownloadProject.Services.Implementations
                 var fileName = response.Content.Headers?.ContentDisposition?.FileName ?? "tmp.zip";
 
                 // Step 3 : Get total of data
+
+                var totalValueAsString = response.Content.Headers.SingleOrDefault(h => h.Key.Equals("Content-Length")).Value?.First();
+
                 var totalData = response.Content.Headers.ContentLength.GetValueOrDefault(-1L);
                 var canSendProgress = totalData != -1L && progress != null;
 
